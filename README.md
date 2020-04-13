@@ -1,2 +1,2 @@
 # eric-cantona
-discord bot
+discord bot for EEG
