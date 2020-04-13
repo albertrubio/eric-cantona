@@ -1,0 +1,2 @@
+# eric-cantona
+discord bot
