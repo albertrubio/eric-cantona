@@ -1,0 +1,83 @@
+Message {
+  channel: DMChannel {
+    type: 'dm',
+    deleted: false,
+    id: '698087397958877275',
+    recipient: User {
+      id: '688832120910774317',
+      bot: false,
+      username: 'treadstone71',
+      discriminator: '9915',
+      avatar: '9d9108b59bec7bbc9d41d7bf44efcf91',
+      lastMessageID: '703539694641610794',
+      lastMessageChannelID: '698087397958877275'
+    },
+    lastMessageID: '703539694641610794',
+    lastPinTimestamp: null,
+    messages: MessageManager {
+      cacheType: [Function: LimitedCollection],
+      cache: [LimitedCollection [Map]],
+      channel: [Circular]
+    },
+    _typing: Map {}
+  },
+  deleted: false,
+  id: '703539694641610794',
+  type: 'DEFAULT',
+  content: 'https://es.wikipedia.org/wiki/Stan_Lee',
+  author: User {
+    id: '688832120910774317',
+    bot: false,
+    username: 'treadstone71',
+    discriminator: '9915',
+    avatar: '9d9108b59bec7bbc9d41d7bf44efcf91',
+    lastMessageID: '703539694641610794',
+    lastMessageChannelID: '698087397958877275'
+  },
+  pinned: false,
+  tts: false,
+  nonce: '703539693983105024',
+  system: false,
+  embeds: [
+    MessageEmbed {
+      type: 'article',
+      title: 'Stan Lee',
+      description: 'Stanley Martin Lieber (Manhattan, Nueva York, 28 de diciembre de 1922-Los Ángeles, California, 12 de noviembre de 2018),[1]​ más conocido como Stan Lee, fue un escritor y editor de cómics estadounidense, además de productor y ocasional actor de cine. \n' +
+        'Es principalmente conocid...',
+      url: 'https://es.wikipedia.org/wiki/Stan_Lee',
+      color: undefined,
+      timestamp: null,
+      fields: [],
+      thumbnail: [Object],
+      image: null,
+      video: null,
+      author: null,
+      provider: null,
+      footer: null,
+      files: []
+    }
+  ],
+  attachments: Collection [Map] {},
+  createdTimestamp: 1587807334338,
+  editedTimestamp: null,
+  reactions: ReactionManager {
+    cacheType: [Function: Collection],
+    cache: Collection [Map] {},
+    message: [Circular]
+  },
+  mentions: MessageMentions {
+    everyone: false,
+    users: Collection [Map] {},
+    roles: Collection [Map] {},
+    _members: null,
+    _channels: null,
+    crosspostedChannels: Collection [Map] {}
+  },
+  webhookID: null,
+  application: null,
+  activity: null,
+  _edits: [],
+  flags: MessageFlags { bitfield: 0 },
+  reference: null
+}
+Link https://es.wikipedia.org/wiki/Stan_Lee already inserted by same user. Dont create gol

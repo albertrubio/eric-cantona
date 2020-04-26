@@ -64,7 +64,7 @@ client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) {
 
 		if (containsUrl(message.content)) {
-			const onlyUrl = containsUrl(message.content).toString();
+			const onlyUrl = containsUrl(message.content).toString()
 			const sqlGetLink = 'SELECT * FROM linksHistory WHERE urlValue = ?';
 			const sqlInsertLink = 'INSERT INTO linksHistory (urlValue, userID, channelID, timestamp) VALUES (?, ?, ?, ?)';
 			const sqlInsertGoal = 'INSERT INTO goals (value, userID, idLink, timestamp, username) VALUES (?, ?, ?, ?, ?)';
@@ -72,6 +72,7 @@ client.on('message', message => {
 			const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 			const time = today.getHours() + ':' + today.getFullMinutes() + ':' + today.getSeconds();
 			const currentTime = date + ' ' + time;
+			console.log(`ONLYURL = ${onlyUrl}`);
 			myDB.get(sqlGetLink, onlyUrl, (err, row) => {
 				// If row not found, create it
 				if (err) {
@@ -79,22 +80,34 @@ client.on('message', message => {
 				}
 				else if (!row) {
 					console.log(onlyUrl);
-
 					myDB.run(sqlInsertLink, [onlyUrl, message.author.id, message.channel.id, currentTime.toString()], function(err) {
 						if (err) {return console.error(err.message);}
-						console.log(`Created new row for new link ${onlyUrl} by ${message.author.id}. `);
+						console.log(`Created new row for new link ${onlyUrl} by ${message.author.id}. (${message.author.username}) `);
 					});
 				}
 				else {
-					console.log(`Link ${onlyUrl} exists . Creating Goal Insert`);
-					myDB.run(sqlInsertGoal, [1, message.author.id, row.idLink, currentTime.toString(), message.author.username], function(err) {
-						if (err) {return console.error(err.message);}
-						console.log(`Created new row for new Goal : ${row.idLink} -> ${row.urlValue} -> ${row.userID}  ->  ${row.channelID} ->  ${row.timestamp}`);
-						// return a Message to the user in Channel
-						message.reply('GOOOOOOOOOOOOOOOOOOOOOL!').then(() => console.log(`Sent a reply to ${message.author.username}`))
-							.catch(console.error);
-					},
-					);
+					
+					if(message.author.id === row.userID)
+					{
+						console.log(`Link ${onlyUrl} already inserted by same user. Dont create goal`);
+						return;
+					}
+					else if (message.channel._typing.size > 0 ){
+						console.log(`Link ${onlyUrl} quoted. Dont create goal`);
+						return;
+					}
+					else{
+						console.log(`Link ${onlyUrl} exists . Creating Goal Insert`);
+						myDB.run(sqlInsertGoal, [1, message.author.id, row.idLink, currentTime.toString(), message.author.username], function(err) {
+							if (err) {return console.error(err.message);}
+							console.log(`Created new row for new Goal : ${row.idLink} -> ${row.urlValue} -> ${row.userID}  ->  ${row.channelID} ->  ${row.timestamp}`);
+							// return a Message to the user in Channel
+							message.reply('GOOOOOOOOOOOOOOOOOOOOOL!').then(() => console.log(`Sent a reply to ${message.author.username}`))
+								.catch(console.error);
+						},
+						);
+					}
+					
 				}
 
 			});

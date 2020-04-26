@@ -1,11 +1,5 @@
 {
 	"prefix": "!",
-	"botVersion": "1.0.0",
-    "token": "Njk3ODQ3MTM5MDUyNTUyMjEz.XpSwGw.Bkvi_wex6_ti-BiZrk4i5HBlkPQ",
-    "meaning_of_life": 42,
-	"passwords_array": ["please", "dont", "hack", "me"],
-	"secret_passcodes": {
-		"bank": 1234,
-		"home": 4321
-	}
+	"botVersion": "1.1.0",
+    "token": "Njk3ODQ3MTM5MDUyNTUyMjEz.XpVZDQ.UbpLQ_ORQslos9Hk6p3XJ4bmjl4"
 }

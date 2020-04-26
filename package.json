@@ -1,17 +1,28 @@
 {
   "name": "eric.cantona",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "discord bot for EEG",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "albert.rubio",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.1.1",
+    "mkdirp": "^1.0.4",
     "sqlite": "^4.0.7",
     "sqlite3": "^4.1.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albertrubio/eric-cantona.git"
+  },
+  "bugs": {
+    "url": "https://github.com/albertrubio/eric-cantona/issues"
+  },
+  "homepage": "https://github.com/albertrubio/eric-cantona#readme"
 }
