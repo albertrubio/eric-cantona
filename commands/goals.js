@@ -10,7 +10,10 @@ module.exports = {
 			else{
 				console.log(row);
 				if(row.Goals === null) message.channel.send(`${message.author.username} hasn't scored any goal`);
-				else message.channel.send(`${message.author.username} has scored ${row.Goals} goal(s)`);
+				else {
+					const goalString = row.Goals > 1 ? "goals" : "goal";
+					message.channel.send(`${message.author.username} has scored ${row.Goals} ${goalString}`);
+				}
 			}
 		});
 
